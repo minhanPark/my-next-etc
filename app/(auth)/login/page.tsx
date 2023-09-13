@@ -10,6 +10,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 
 import TextField from "@/components/TextField";
 import LoginSchema from "@/libs/validations/LoginSchema";
+import ErrorToast from "@/libs/toast/Error";
 
 interface FormValues {
   email: string;
@@ -29,7 +30,10 @@ export default function Page() {
   };
 
   const onError: SubmitErrorHandler<FormValues> = (errors) => {
-    console.log("제출된 폼 에러", errors);
+    console.log(errors);
+    ErrorToast({
+      errorMessage: errors.email?.message || errors.password?.message,
+    });
   };
   return (
     <div className="h-full flex flex-col justify-center md:max-w-md mx-auto">

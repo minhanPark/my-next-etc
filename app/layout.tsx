@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 const nanumGothic = Nanum_Gothic({
   subsets: ["latin"],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={nanumGothic.className}>{children}</body>
+      <body className={nanumGothic.className}>
+        <>
+          {children}
+          <Toaster />
+        </>
+      </body>
     </html>
   );
 }
