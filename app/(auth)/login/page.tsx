@@ -1,9 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import {
+  useForm,
+  type SubmitHandler,
+  type SubmitErrorHandler,
+} from "react-hook-form";
+import { joiResolver } from "@hookform/resolvers/joi";
 
 import TextField from "@/components/TextField";
+import LoginSchema from "@/libs/validations/LoginSchema";
 
 interface FormValues {
   email: string;
@@ -16,9 +22,14 @@ export default function Page() {
       email: "",
       password: "",
     },
+    resolver: joiResolver(LoginSchema),
   });
   const onValid: SubmitHandler<FormValues> = (data) => {
     console.log("제출된 폼", data);
+  };
+
+  const onError: SubmitErrorHandler<FormValues> = (errors) => {
+    console.log("제출된 폼 에러", errors);
   };
   return (
     <div className="h-full flex flex-col justify-center md:max-w-md mx-auto">
@@ -27,7 +38,8 @@ export default function Page() {
       </div>
       <h1 className="font-bold text-3xl text-center mt-6 mb-10">이모저모</h1>
       <form
-        onSubmit={handleSubmit(onValid)}
+        noValidate
+        onSubmit={handleSubmit(onValid, onError)}
         className="block p-8 w-full bg-white border border-gray-200 rounded-lg shadow"
       >
         <TextField
