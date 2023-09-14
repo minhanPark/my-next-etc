@@ -11,6 +11,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import TextField from "@/components/TextField";
 import LoginSchema from "@/libs/validations/LoginSchema";
 import ErrorToast from "@/libs/toast/Error";
+import LoadingButton from "@/components/LoadingButton";
 
 interface FormValues {
   email: string;
@@ -59,7 +60,8 @@ export default function Page() {
           addClass="mt-6"
           register={register("password")}
         />
-        <button>제출</button>
+
+        <LoadingButton />
       </form>
     </div>
   );
