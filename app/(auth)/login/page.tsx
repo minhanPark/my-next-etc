@@ -12,6 +12,7 @@ import TextField from "@/components/TextField";
 import LoginSchema from "@/libs/validations/LoginSchema";
 import ErrorToast from "@/libs/toast/Error";
 import LoadingButton from "@/components/LoadingButton";
+import { useState } from "react";
 
 interface FormValues {
   email: string;
@@ -19,6 +20,10 @@ interface FormValues {
 }
 
 export default function Page() {
+  const [loading, setLoading] = useState(false);
+  const handleLoading = () => {
+    setLoading((prev) => !prev);
+  };
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       email: "",
@@ -45,7 +50,7 @@ export default function Page() {
       <form
         noValidate
         onSubmit={handleSubmit(onValid, onError)}
-        className="block p-8 w-full bg-white border border-gray-200 rounded-lg shadow"
+        className="block py-8 px-10 w-full bg-white border border-gray-200 rounded-lg shadow"
       >
         <TextField
           label="이메일"
@@ -57,11 +62,17 @@ export default function Page() {
           label="비밀번호"
           type="password"
           required
-          addClass="mt-6"
+          addClass="mt-4"
           register={register("password")}
         />
-
-        <LoadingButton />
+        <div>
+          <button type="button" onClick={handleLoading}>
+            버튼
+          </button>
+        </div>
+        <LoadingButton loading={loading} fullWidth>
+          로그인
+        </LoadingButton>
       </form>
     </div>
   );
