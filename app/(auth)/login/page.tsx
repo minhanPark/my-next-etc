@@ -100,7 +100,7 @@ export default function Page() {
           href="#"
           className="text-base font-normal text-gray-500 hover:underline text-emerald-600"
         >
-          회원가입하기
+          회원가입 하기
         </Link>
       </p>
     </div>
