@@ -63,6 +63,9 @@ export default function SignupForm() {
         addClass="mt-4"
         register={register("passwordCheck")}
       />
+      <p className="text-sm text-gray-500 mt-1">
+        영문 + 숫자 + 특수문자 포함 8자 이상
+      </p>
       <div className="flex flex-col my-5">
         <div className="flex items-center">
           <input
