@@ -17,7 +17,7 @@ export default function Link({
   return (
     <NextLink
       href={href}
-      className={cls("font-normal hover:underline", {
+      className={cls("font-normal hover:underline hover:text-emerald-600", {
         "text-base": fontSize === "base",
         "text-sm": fontSize === "small",
         "text-gray-500": fontColor === "gray",

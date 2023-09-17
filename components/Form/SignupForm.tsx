@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import {
   useForm,
   type SubmitHandler,
@@ -9,7 +8,6 @@ import {
 import { joiResolver } from "@hookform/resolvers/joi";
 
 import TextField from "@/components/TextField";
-import LoginSchema from "@/libs/validations/LoginSchema";
 import ErrorToast from "@/libs/toast/Error";
 import LoadingButton from "@/components/LoadingButton";
 import Link from "@/components/Link";
@@ -17,16 +15,18 @@ import Link from "@/components/Link";
 interface FormValues {
   email: string;
   password: string;
+  passwordCheck: string;
 }
 
-export default function LoginForm() {
+export default function SignupForm() {
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       email: "",
       password: "",
+      passwordCheck: "",
     },
-    resolver: joiResolver(LoginSchema),
   });
+
   const onValid: SubmitHandler<FormValues> = (data) => {
     console.log("제출된 폼", data);
   };
@@ -37,9 +37,6 @@ export default function LoginForm() {
       errorMessage: errors.email?.message || errors.password?.message,
     });
   };
-
-  //   FIXME: 확인 끝나면 폼에 noValidate 제거
-
   return (
     <form
       noValidate
@@ -59,27 +56,60 @@ export default function LoginForm() {
         addClass="mt-4"
         register={register("password")}
       />
-      <div className="flex items-center justify-between my-5">
+      <TextField
+        label="비밀번호 확인"
+        type="password"
+        required
+        addClass="mt-4"
+        register={register("passwordCheck")}
+      />
+      <div className="flex flex-col my-5">
         <div className="flex items-center">
           <input
-            id="remember-email"
+            id="약관1"
             type="checkbox"
             value=""
             className="w-4 h-4 accent-emerald-600 bg-gray-100 border-gray-300 rounded"
           />
           <label
-            htmlFor="remember-email"
+            htmlFor="약관1"
             className="ml-2 text-sm font-normal text-gray-500"
           >
-            이메일 기억하기
+            무슨무슨 약관에도 동의합니다. ( <Link href="#">보러가기</Link> )
           </label>
         </div>
-        <div>
-          <Link href="#">비밀번호 찾기</Link>
+        <div className="flex items-center mt-2">
+          <input
+            id="약관2"
+            type="checkbox"
+            value=""
+            className="w-4 h-4 accent-emerald-600 bg-gray-100 border-gray-300 rounded"
+          />
+          <label
+            htmlFor="약관2"
+            className="ml-2 text-sm font-normal text-gray-500"
+          >
+            무슨무슨 약관에 동의합니다. ( <Link href="#">보러가기</Link> )
+          </label>
+        </div>
+        <div className="flex items-center mt-2">
+          <input
+            id="약관3"
+            type="checkbox"
+            value=""
+            className="w-4 h-4 accent-emerald-600 bg-gray-100 border-gray-300 rounded"
+          />
+          <label
+            htmlFor="약관3"
+            className="ml-2 text-sm font-normal text-gray-500"
+          >
+            개인정보를 넘기는 약관에 동의합니다. ({" "}
+            <Link href="#">보러가기</Link> )
+          </label>
         </div>
       </div>
       <LoadingButton loading={false} fullWidth>
-        로그인
+        회원가입
       </LoadingButton>
     </form>
   );
