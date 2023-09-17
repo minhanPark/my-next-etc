@@ -7,6 +7,7 @@ import {
   type SubmitErrorHandler,
 } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
+import Link from "next/link";
 
 import TextField from "@/components/TextField";
 import LoginSchema from "@/libs/validations/LoginSchema";
@@ -65,15 +66,43 @@ export default function Page() {
           addClass="mt-4"
           register={register("password")}
         />
-        <div>
-          <button type="button" onClick={handleLoading}>
-            버튼
-          </button>
+        <div className="flex items-center justify-between my-5">
+          <div className="flex items-center">
+            <input
+              id="remember-email"
+              type="checkbox"
+              value=""
+              className="w-4 h-4 accent-emerald-600 bg-gray-100 border-gray-300 rounded"
+            />
+            <label
+              htmlFor="remember-email"
+              className="ml-2 text-sm font-normal text-gray-500"
+            >
+              이메일 기억하기
+            </label>
+          </div>
+          <div>
+            <Link
+              href="#"
+              className="text-sm font-normal text-gray-500 hover:underline hover:text-emerald-600"
+            >
+              비밀번호 찾기
+            </Link>
+          </div>
         </div>
         <LoadingButton loading={loading} fullWidth>
           로그인
         </LoadingButton>
       </form>
+      <p className="text-base font-normal text-gray-500 text-center mt-7">
+        계정이 없으신가요?{" "}
+        <Link
+          href="#"
+          className="text-base font-normal text-gray-500 hover:underline text-emerald-600"
+        >
+          회원가입하기
+        </Link>
+      </p>
     </div>
   );
 }
