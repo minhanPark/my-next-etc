@@ -3,5 +3,9 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  return <>{children}</>;
+  return (
+    <div className="h-full flex flex-col justify-center md:max-w-md mx-auto">
+      {children}
+    </div>
+  );
 }
