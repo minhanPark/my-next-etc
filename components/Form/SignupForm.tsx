@@ -11,6 +11,7 @@ import TextField from "@/components/TextField";
 import ErrorToast from "@/libs/toast/Error";
 import LoadingButton from "@/components/LoadingButton";
 import Link from "@/components/Link";
+import SignupSchema from "@/libs/validations/SignupSchema";
 
 interface FormValues {
   email: string;
@@ -25,6 +26,7 @@ export default function SignupForm() {
       password: "",
       passwordCheck: "",
     },
+    resolver: joiResolver(SignupSchema),
   });
 
   const onValid: SubmitHandler<FormValues> = (data) => {
@@ -34,9 +36,13 @@ export default function SignupForm() {
   const onError: SubmitErrorHandler<FormValues> = (errors) => {
     console.log(errors);
     ErrorToast({
-      errorMessage: errors.email?.message || errors.password?.message,
+      errorMessage:
+        errors.email?.message ||
+        errors.password?.message ||
+        errors.passwordCheck?.message,
     });
   };
+  //   FIXME: 확인 끝나면 폼에 noValidate 제거
   return (
     <form
       noValidate

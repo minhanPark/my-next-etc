@@ -20,7 +20,10 @@ const SignupSchema = Joi.object({
       "string.pattern.name": "비밀번호가 올바르지 않습니다.",
       "string.empty": "비밀번호를 입력해주세요.",
     }),
-  passwordCheck: Joi.string().valid(Joi.ref("password")).messages({}),
+  passwordCheck: Joi.string().valid(Joi.ref("password")).required().messages({
+    "any.only": "비밀번호가 일치하지 않습니다.",
+    "string.empty": "비밀번호 확인을 입력해주세요.",
+  }),
 });
 
 export default SignupSchema;

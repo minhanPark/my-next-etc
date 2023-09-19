@@ -13,6 +13,7 @@ const LoginSchema = Joi.object({
     .min(8)
     .pattern(/[a-zA-Z]/, "string")
     .pattern(/[0-9]/, "number")
+    .pattern(/[^a-zA-Z0-9]/, "special")
     .required()
     .messages({
       "string.min": "비밀번호가 올바르지 않습니다.",
