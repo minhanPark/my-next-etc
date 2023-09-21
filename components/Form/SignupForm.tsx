@@ -6,6 +6,7 @@ import {
   type SubmitErrorHandler,
 } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
+import { useMutation } from "@tanstack/react-query";
 
 import TextField from "@/components/TextField";
 import ErrorToast from "@/libs/toast/Error";
@@ -20,6 +21,12 @@ interface FormValues {
 }
 
 export default function SignupForm() {
+  const { mutate, isLoading, data } = useMutation((data: FormValues) =>
+    fetch("/api/signup", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }).then((res) => res.json())
+  );
   const { register, handleSubmit } = useForm<FormValues>({
     defaultValues: {
       email: "",
@@ -31,6 +38,7 @@ export default function SignupForm() {
 
   const onValid: SubmitHandler<FormValues> = (data) => {
     console.log("제출된 폼", data);
+    mutate(data);
   };
 
   const onError: SubmitErrorHandler<FormValues> = (errors) => {
@@ -42,6 +50,7 @@ export default function SignupForm() {
         errors.passwordCheck?.message,
     });
   };
+  console.log({ data, isLoading });
   //   FIXME: 확인 끝나면 폼에 noValidate 제거
   return (
     <form
@@ -117,7 +126,7 @@ export default function SignupForm() {
           </label>
         </div>
       </div>
-      <LoadingButton loading={false} fullWidth>
+      <LoadingButton loading={isLoading} fullWidth>
         회원가입
       </LoadingButton>
     </form>

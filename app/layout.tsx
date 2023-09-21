@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Nanum_Gothic } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import ReactQueryProvider from "@/components/Providers/ReactQueryProvider";
 
 const nanumGothic = Nanum_Gothic({
   subsets: ["latin"],
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={nanumGothic.className}>
         <>
-          {children}
+          <ReactQueryProvider>{children}</ReactQueryProvider>
           <Toaster />
         </>
       </body>
