@@ -1,7 +1,10 @@
-POST http://localhost:3000/api/signup
+# POST http://localhost:3000/api/signup
 
-{
-    "email": "alsgks1@test.com",
-    "password": "1234567aA(",
-    "passwordCheck":"1234567aA("
-}
+# {
+#     "email": "alsgks1@test.com",
+#     "password": "1234567aA(",
+#     "passwordCheck":"1234567aA("
+# }
+
+
+GET https://cpro95.tistory.com/71
