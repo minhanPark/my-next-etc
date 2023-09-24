@@ -7,7 +7,9 @@ export async function POST(request: Request) {
   const res = await fetch(url);
   const html = await res.text();
   const $ = cheerio.load(html);
-  console.log($.html());
+  //console.log($.html());
+  const meta = $("meta");
+  console.log(meta.length);
   return NextResponse.json({
     ok: true,
   });
