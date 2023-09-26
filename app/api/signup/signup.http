@@ -8,9 +8,29 @@
 
 
 # GET https://cpro95.tistory.com/71
-
+# Accept: text/html, application/xhtml+xml
+# User-Agent: facebookexternalhit
 //GET https://youtu.be/9rttwV8sgZs?si=afDk37X3C4ODb9KZ
 
 // GET https://cafe.naver.com/livehope/464444
 
-GET https://m.cafe.naver.com/ca-fe/web/cafes/uvacenter/articles/649853
+//GET https://m.cafe.naver.com/ca-fe/web/cafes/uvacenter/articles/649853
+
+# GET https://cafe.naver.com/uvacenter/649853
+# Accept: text/html, application/xhtml+xml
+# User-Agent: facebookexternalhit
+
+# GET https://www.instagram.com/p/CxfsVWzpwIO/?igshid=MzRlODBiNWFlZA==
+# Accept: text/html, application/xhtml+xml
+# User-Agent: facebookexternalhit
+
+# "1,549 likes, 14 comments - funstaurant_kbs on September 22, 2023: &quot;&#x1f37d;&#xc724;&#xc2ac;&#xb9d8; &#xd55c;&#xc9c0;&#xd61c; &#x2013; &#xb2f9;&#xadfc; &#xc2a4;&#xd14c;&#xc774;&#xd06c;
+# 인스타그램은 콘텐츠가 이런식으로 온다
+
+# GET https://blog.naver.com/haewon2367/223187005741
+# Accept: text/html, application/xhtml+xml
+# User-Agent: facebookexternalhit
+
+GET https://youtu.be/0fBEYdXzRME?si=Oe5J_C3QgtMaEgxW
+Accept: text/html, application/xhtml+xml
+User-Agent: facebookexternalhit

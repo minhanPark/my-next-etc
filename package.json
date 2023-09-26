@@ -28,6 +28,7 @@
     "nanoid": "^5.0.1",
     "next": "13.4.19",
     "npm": "^10.1.0",
+    "open-graph-scraper": "^6.2.2",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
