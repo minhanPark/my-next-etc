@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import * as cheerio from "cheerio";
 import { unfurl } from "unfurl.js";
-import ogs from "open-graph-scraper";
 
 /**
  * rest client로 확인해보니
@@ -17,7 +16,7 @@ export async function POST(request: Request) {
   // const { error, html, result, response } = await ogs({ url });
   // console.log({ error, result, response });
   const result = await unfurl(url);
-  console.log(result);
+  console.log(result.open_graph.images);
 
   // const res = await fetch(url);
   // const html = await res.text();

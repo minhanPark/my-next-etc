@@ -27,10 +27,14 @@
 # "1,549 likes, 14 comments - funstaurant_kbs on September 22, 2023: &quot;&#x1f37d;&#xc724;&#xc2ac;&#xb9d8; &#xd55c;&#xc9c0;&#xd61c; &#x2013; &#xb2f9;&#xadfc; &#xc2a4;&#xd14c;&#xc774;&#xd06c;
 # 인스타그램은 콘텐츠가 이런식으로 온다
 
-# GET https://blog.naver.com/haewon2367/223187005741
+GET https://blog.naver.com/haewon2367/223187005741
+Accept: text/html, application/xhtml+xml
+User-Agent: facebookexternalhit
+
+# GET https://youtu.be/0fBEYdXzRME?si=Oe5J_C3QgtMaEgxW
 # Accept: text/html, application/xhtml+xml
 # User-Agent: facebookexternalhit
 
-GET https://youtu.be/0fBEYdXzRME?si=Oe5J_C3QgtMaEgxW
-Accept: text/html, application/xhtml+xml
-User-Agent: facebookexternalhit
+# GET https://search.naver.com/search.naver?where=article&query=%22%EC%88%98%EC%9B%90%20%EC%9A%94%EC%96%91%EB%B3%91%EC%9B%90%20%EA%B6%81%EA%B8%88%22&ie=utf8&st=rel&date_option=8&date_from=2023.07.18&date_to=2023.07.18&srchby=text&dup_remove=1&cafe_url=&without_cafe_url=&sm=tab_opt&nso=so%3Add%2Cp%3Afrom20230718to20230718&nso_open=1&prdtype=0
+# Accept: text/html, application/xhtml+xml
+# User-Agent: facebookexternalhit
